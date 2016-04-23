@@ -61,7 +61,6 @@ public class SearchListViewFragment extends Fragment{
         tabs.add(new HomeTab("match"));
         tabs.add(new HomeTab("message"));
         tabs.add(new HomeTab("setting"));
-        tabs.add(new HomeTab("setting"));
 
         adapter = new ViewPagerAdapter(getFragmentManager() , tabs);
         //この見えない部分の再利用まわり。
