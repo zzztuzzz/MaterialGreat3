@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Drawer With Swipe Tabs</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="details_title_text" >in. Kielbasa cow brisket pastrami ball tip
+        tenderloin bresaola ham. Biltong andouille chuck ham hock jerky beef chicken, flank shankle
+        ball tip venison porchetta kevin fatback kielbasa. Boudin tongue ground round, turkey pork
+        belly salami corned beef pork tri-tip meatloaf sausage andouille strip steak pig. Spare ribs
+        beef meatloaf rump sausage doner frankfurter.\n\n.</string>
+
+    <string name="details_body_text" >in. Kielbasa cow brisket pastrami ball tip
+        tenderloin bresaola ham. Biltong andouille chuck ham hock jerky beef chicken, flank shankle
+        ball tip venison porchetta kevin fatback kielbasa. Boudin tongue ground round, turkey pork
+        belly salami corned beef pork tri-tip meatloaf sausage andouille strip steak pig. Spare ribs
+        beef meatloaf rump sausage doner frankfurter.\n\n
+        Fatback porchetta pork loin meatball, turducken pork chop drumstick boudin. Kevin tri-tip
+        ground round corned beef, ribeye swine filet mignon salami pork spare ribs pork chop
+        brisket. Filet mignon shankle t-bone bacon. Turducken capicola turkey porchetta kielbasa
+        shank pork loin jerky venison tenderloin boudin ham hock ground round.</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+</resources>

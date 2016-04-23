@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="all_images">
+        <item>@drawable/w1</item>
+        <item>@drawable/w2</item>
+        <item>@drawable/w3</item>
+        <item>@drawable/w4</item>
+        <item>@drawable/w6</item>
+        <item>@drawable/w10</item>
+
+    </string-array>
+</resources>
