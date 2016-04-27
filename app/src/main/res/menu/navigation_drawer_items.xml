@@ -19,6 +19,5 @@
             android:id="@+id/navItemSetting"
             android:icon="@drawable/ic_nav_settings"
             android:title="@string/action_settings"/>
-
     </group>
 </menu>
