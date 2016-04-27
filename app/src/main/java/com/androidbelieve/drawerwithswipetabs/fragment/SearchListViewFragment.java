@@ -64,7 +64,7 @@ public class SearchListViewFragment extends Fragment{
 
         adapter = new ViewPagerAdapter(getFragmentManager() , tabs);
         //この見えない部分の再利用まわり。
-        viewPager.setOffscreenPageLimit(1);
+        viewPager.setOffscreenPageLimit(2);
 //        fragmentTwo = new FragmentTwo();
         setViewPageAdapter();
 
