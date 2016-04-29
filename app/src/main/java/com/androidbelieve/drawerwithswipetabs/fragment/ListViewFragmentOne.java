@@ -14,7 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 
-import com.androidbelieve.drawerwithswipetabs.MainActivity;
 import com.androidbelieve.drawerwithswipetabs.R;
 import com.androidbelieve.drawerwithswipetabs.views.DetailsTransition;
 import com.androidbelieve.drawerwithswipetabs.views.GridViewAdapter;
@@ -66,7 +65,7 @@ public class ListViewFragmentOne extends Fragment implements KittenClickListener
             allDrawableImages.add(allImages.getDrawable(i));
         }
 
-        GridViewAdapter gridViewAdapter = new GridViewAdapter(MainActivity.getInstance(), allDrawableImages);
+        GridViewAdapter gridViewAdapter = new GridViewAdapter(com.androidbelieve.drawerwithswipetabs.activity.MainActivity.getInstance(), allDrawableImages);
         gridView.setAdapter(gridViewAdapter);
     }
     @Override
