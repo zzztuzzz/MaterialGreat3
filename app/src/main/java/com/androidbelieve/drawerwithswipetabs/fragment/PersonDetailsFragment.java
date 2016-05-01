@@ -17,6 +17,7 @@ import com.androidbelieve.drawerwithswipetabs.R;
 public class PersonDetailsFragment extends Fragment {
     private static final String ARG_KITTEN_NUMBER = "argKittenNumber";
 
+
     /**
      * Create a new PersonDetailsFragment
      * @param kittenNumber The number (between 1 and 6) of the kitten to display

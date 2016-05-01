@@ -56,7 +56,6 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 /**
  * Created by teiyuueki on 2016/04/29.
  */
-
 public class SendBirdUserListActivity extends FragmentActivity {
     private SendBirdUserListFragment mSendBirdUserListFragment;
 

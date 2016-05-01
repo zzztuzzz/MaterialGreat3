@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 
 import com.androidbelieve.drawerwithswipetabs.R;
 import com.androidbelieve.drawerwithswipetabs.fragment.ListViewFragmentOne;
-import com.androidbelieve.drawerwithswipetabs.fragment.SearchListViewFragment;
 
 /**
  * Created by teiyuueki on 2016/04/23.
