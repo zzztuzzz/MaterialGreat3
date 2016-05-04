@@ -36,8 +36,6 @@ public class ListViewFragmentOne extends Fragment implements KittenClickListener
     ArrayList<Drawable> allDrawableImages = new ArrayList<>();
     private TypedArray allImages;
 
-//    @BindView(R.id.recyclerview)
-//    RecyclerView recyclerView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -48,6 +46,7 @@ public class ListViewFragmentOne extends Fragment implements KittenClickListener
         RecyclerView recyclerView = (RecyclerView)  rootView.findViewById(R.id.recyclerview);
         recyclerView.setAdapter(new KittenGridAdapter(6, this));
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
+
         setAdapter();
         return rootView;
     }
@@ -75,24 +74,7 @@ public class ListViewFragmentOne extends Fragment implements KittenClickListener
         int kittenNumber = (position % 6) + 1;
         ProfileDetailActivity.startActivity(getActivity(), kittenNumber);
 
-//        PersonDetailsFragment kittenDetails = PersonDetailsFragment.newInstance(kittenNumber);
 
-        // Note that we need the API version check here because the actual transition classes (e.g. Fade)
-        // are not in the support library and are only available in API 21+. The methods we are calling on the Fragment
-        // ARE available in the support library (though they don't do anything on API < 21)
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//            kittenDetails.setSharedElementEnterTransition(new DetailsTransition());
-//            kittenDetails.setEnterTransition(new Fade());
-//            setExitTransition(new Fade());
-//            kittenDetails.setSharedElementReturnTransition(new DetailsTransition());
-//        }
-
-//        getActivity().getSupportFragmentManager()
-//                .beginTransaction()
-//                .addSharedElement(holder.image, "kittenImage")
-//                .replace(R.id.containerView, kittenDetails)
-//                .addToBackStack(null)
-//                .commit();
     }
 
 

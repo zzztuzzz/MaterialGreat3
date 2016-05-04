@@ -12,6 +12,6 @@
         android:layout_height="220dp"
         android:scaleType="centerCrop"
         tools:ignore="ContentDescription"
-        android:layout_margin="5dp"/>
+        android:layout_margin="1dp"/>
 
 </LinearLayout>

@@ -1,10 +1,10 @@
 package com.androidbelieve.drawerwithswipetabs.activity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
 import com.androidbelieve.drawerwithswipetabs.R;
 import com.androidbelieve.drawerwithswipetabs.databinding.ProfileDetailBinding;
@@ -12,7 +12,7 @@ import com.androidbelieve.drawerwithswipetabs.databinding.ProfileDetailBinding;
 import icepick.Icepick;
 import icepick.State;
 
-public class ProfileDetailActivity extends AppCompatActivity {
+public class ProfileDetailActivity extends Activity {
 
     private static final String EXTRA_KITTEN_NUMBER = "kitten_number";
 
@@ -20,16 +20,19 @@ public class ProfileDetailActivity extends AppCompatActivity {
         Intent intent = new Intent(context, ProfileDetailActivity.class);
         intent.putExtra(EXTRA_KITTEN_NUMBER, kittenNumber);
         context.startActivity(intent);
-
     }
 
     @State int kittenNumber;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ProfileDetailBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_profile_detail);
         kittenNumber = getIntent().getIntExtra(EXTRA_KITTEN_NUMBER, 0);
+
+//        ActionBar actionBar = getActionBar();
+//        actionBar.hide();
+
+
 
         switch (kittenNumber) {
             case 1:
@@ -52,6 +55,8 @@ public class ProfileDetailActivity extends AppCompatActivity {
                 break;
         }
     }
+
+
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {

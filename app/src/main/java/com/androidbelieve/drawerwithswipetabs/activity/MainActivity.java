@@ -26,12 +26,14 @@ public class MainActivity extends AppCompatActivity {
 
     public static MainActivity instance;
     private MainBinding binding;
+    ViewPagerAdapter adapter;
 
     //sendbird
 
     String USER_ID = SendBirdHelper.generateDeviceUUID(MainActivity.this); /* Generate Device UUID */
     String USER_NICKNAME = SendBirdHelper.setUserName();
     String APP_ID = "EC610DEE-E219-4AC6-B727-96CBE60E4559";
+
 
     private static final int REQUEST_SENDBIRD_CHAT_ACTIVITY = 100;
     private static final int REQUEST_SENDBIRD_CHANNEL_LIST_ACTIVITY = 101;
@@ -55,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+
     private void setAllwigets() {
         /**
          * Lets inflate the very first fragment
@@ -68,15 +72,21 @@ public class MainActivity extends AppCompatActivity {
         tabs.add(new HomeTab("message"));
         tabs.add(new HomeTab("setting"));
 
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager(), tabs);
+        //1.viewpageradapterによって、内部描画コンテンツを任せてる。ViewPagerAdapterに関して、リンク飛ばす。
+        adapter = new ViewPagerAdapter(getSupportFragmentManager(), tabs);
         //この見えない部分の再利用まわり。
-        binding.viewPager.setOffscreenPageLimit(2);
+//        binding.viewPager.setOffscreenPageLimit(2);
         binding.viewPager.setAdapter(adapter);
         binding.tabLayout.setupWithViewPager(binding.viewPager);
 
         setNavigationClickAction();
         setToggleAction();
 
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+//        binding.viewPager.setCurrentItem(adapter.getCount());
     }
 
 
@@ -92,15 +102,16 @@ public class MainActivity extends AppCompatActivity {
 
                 if (menuItem.getItemId() == R.id.nav_item_search) {
                     //TODO:fragment 相談。
-                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+//                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
 //                    fragmentTransaction.replace(R.id.containerView, new SearchListViewFragment()).commit();
+                    startMessagingChannelList();
                 }
 
                 if (menuItem.getItemId() == R.id.nav_item_match) {
 //                    FragmentTransaction xfragmentTransaction = mFragmentManager.beginTransaction();
 //                    xfragmentTransaction.replace(R.id.containerView, new MatchFragment()).commit();
 //                      startChannelList();
-//                    startUserList();
+//                    startUserList()
                     startMessagingChannelList();
                 }
 
@@ -114,6 +125,8 @@ public class MainActivity extends AppCompatActivity {
 
         });
     }
+
+
 
     public static Context getInstance() {
         return instance;

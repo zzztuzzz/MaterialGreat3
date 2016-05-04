@@ -30,7 +30,6 @@
                     android:transitionName="kittenImage"
                     tools:ignore="ContentDescription,UnusedAttribute" />
 
-
                 <TextView
                     android:layout_width="5dp"
                     android:layout_height="0dp"
@@ -67,6 +66,7 @@
             </LinearLayout>
 
         </ScrollView>
+
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/first_fab"
