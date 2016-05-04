@@ -15,6 +15,7 @@ import com.androidbelieve.drawerwithswipetabs.adapter.ViewPagerAdapter;
 import com.androidbelieve.drawerwithswipetabs.databinding.MainBinding;
 import com.androidbelieve.drawerwithswipetabs.domain.sharedusecase.HomeTab;
 import com.androidbelieve.drawerwithswipetabs.domain.sharedusecase.SendBirdHelper;
+import com.androidbelieve.drawerwithswipetabs.fragment.ListViewFragmentOne;
 import com.androidbelieve.drawerwithswipetabs.fragment.MessagesFragemnt;
 import com.sendbird.android.SendBird;
 
@@ -34,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
     String USER_NICKNAME = SendBirdHelper.setUserName();
     String APP_ID = "EC610DEE-E219-4AC6-B727-96CBE60E4559";
 
-
     private static final int REQUEST_SENDBIRD_CHAT_ACTIVITY = 100;
     private static final int REQUEST_SENDBIRD_CHANNEL_LIST_ACTIVITY = 101;
     private static final int REQUEST_SENDBIRD_MESSAGING_ACTIVITY = 200;
@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         //set sendbird init
         SendBird.init(APP_ID);
         SendBird.login(USER_ID, USER_NICKNAME);
+        System.out.println("==========================");
 
         instance = this;
         setAllwigets();
@@ -67,15 +68,20 @@ public class MainActivity extends AppCompatActivity {
 
 
         List<HomeTab> tabs = new ArrayList<>();
-        tabs.add(new HomeTab("top"));
-        tabs.add(new HomeTab("match"));
-        tabs.add(new HomeTab("message"));
-        tabs.add(new HomeTab("setting"));
+
+//        for (int i = 0; i < 250;) {
+            tabs.add(new HomeTab("top"));
+            tabs.add(new HomeTab("match"));
+            tabs.add(new HomeTab("message"));
+            tabs.add(new HomeTab("setting"));
+//            i++;
+//        }
 
         //1.viewpageradapterによって、内部描画コンテンツを任せてる。ViewPagerAdapterに関して、リンク飛ばす。
+        System.out.println("viewpager開始");
         adapter = new ViewPagerAdapter(getSupportFragmentManager(), tabs);
         //この見えない部分の再利用まわり。
-//        binding.viewPager.setOffscreenPageLimit(2);
+        binding.viewPager.setOffscreenPageLimit(2);
         binding.viewPager.setAdapter(adapter);
         binding.tabLayout.setupWithViewPager(binding.viewPager);
 
@@ -83,11 +89,12 @@ public class MainActivity extends AppCompatActivity {
         setToggleAction();
 
     }
-    @Override
-    protected void onResume() {
-        super.onResume();
-//        binding.viewPager.setCurrentItem(adapter.getCount());
-    }
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        System.out.println("setCurrentItem:"+adapter.getCount()/2);
+//        binding.viewPager.setCurrentItem(adapter.getCount() / 2);
+//    }
 
 
     private void setNavigationClickAction() {
@@ -102,9 +109,9 @@ public class MainActivity extends AppCompatActivity {
 
                 if (menuItem.getItemId() == R.id.nav_item_search) {
                     //TODO:fragment 相談。
-//                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-//                    fragmentTransaction.replace(R.id.containerView, new SearchListViewFragment()).commit();
-                    startMessagingChannelList();
+                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.containerView, new ListViewFragmentOne()).commit();
+//                    startMessagingChannelList();
                 }
 
                 if (menuItem.getItemId() == R.id.nav_item_match) {
