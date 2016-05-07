@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<navigationModel
+  ns = "http://schemas.android.com?import=com.android.tools.idea.editors.navigation.model.*">
+  <locations  
+    class = "java.util.ArrayList">
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "com.androidbelieve.drawerwithswipetabs.activity.SendBirdUserListActivity"/>
+      <point      
+        x = "904"      
+        y = "412"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "com.androidbelieve.drawerwithswipetabs.activity.SendBirdChannelListActivity"/>
+      <point      
+        x = "1724"      
+        y = "436"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "com.androidbelieve.drawerwithswipetabs.activity.SendBirdMessagingActivity"/>
+      <point      
+        x = "2664"      
+        y = "432"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "com.androidbelieve.drawerwithswipetabs.activity.SendBirdMessagingChannelListActivity"/>
+      <point      
+        x = "2676"      
+        y = "1868"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "com.androidbelieve.drawerwithswipetabs.activity.ProfileDetailActivity"/>
+      <point      
+        x = "808"      
+        y = "1920"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "com.androidbelieve.drawerwithswipetabs.activity.MainActivity"/>
+      <point      
+        x = "-12"      
+        y = "420"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "com.androidbelieve.drawerwithswipetabs.activity.SendBirdMemberListActivity"/>
+      <point      
+        x = "3560"      
+        y = "420"/>
+    </statePointEntry>
+  </locations>
+</navigationModel>

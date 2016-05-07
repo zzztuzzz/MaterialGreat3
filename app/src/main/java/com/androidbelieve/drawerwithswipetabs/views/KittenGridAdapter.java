@@ -44,6 +44,8 @@ public class KittenGridAdapter<T> extends RecyclerView.Adapter<RecyclerView.View
 //        mListener = listener;
 //    }
 
+
+    //gridviewのadapterで、gridviewに、onscrollした際に、検知させる。ここでrecyclerviewにリスナセットすんのはおかしい。
     public KittenGridAdapter(List<T> myDataSet,int size,ListViewFragmentOne listener,RecyclerView recyclerView) {
         mSize = size;
         mListener = listener;
@@ -151,45 +153,7 @@ public class KittenGridAdapter<T> extends RecyclerView.Adapter<RecyclerView.View
         });
     }
 
-//    @Override
-//    public void onBindViewHolder(final KittenViewHolder viewHolder, final int position) {
-//
-//
-//        switch (position % 6) {
-//            case 0:
-//                viewHolder.image.setImageResource(R.drawable.w6);
-//                break;
-//            case 1:
-//                viewHolder.image.setImageResource(R.drawable.w10);
-//                break;
-//            case 2:
-//                viewHolder.image.setImageResource(R.drawable.w1);
-//                break;
-//            case 3:
-//                viewHolder.image.setImageResource(R.drawable.w2);
-//                break;
-//            case 4:
-//                viewHolder.image.setImageResource(R.drawable.w3);
-//                break;
-//            case 5:
-//                viewHolder.image.setImageResource(R.drawable.w4);
-//                break;
-//        }
-//
-//        // It is important that each shared element in the source screen has a unique transition name.
-//        // For example, we can't just give all the images in our grid the transition name "kittenImage"
-//        // because then we would have conflicting transition names.
-//        // By appending "_image" to the position, we can support having multiple shared elements in each
-//        // grid cell in the future.
-//        ViewCompat.setTransitionName(viewHolder.image, String.valueOf(position) + "_image");
-//
-//        viewHolder.image.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                mListener.onKittenClicked(viewHolder, position);
-//            }
-//        });
-//    }
+
 
 
 

@@ -5,7 +5,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.androidbelieve.drawerwithswipetabs.domain.sharedusecase.HomeTab;
+import com.androidbelieve.drawerwithswipetabs.fragment.ListViewFragment;
 import com.androidbelieve.drawerwithswipetabs.fragment.ListViewFragmentOne;
+import com.androidbelieve.drawerwithswipetabs.fragment.MessagesFragemnt;
 
 import java.util.List;
 
@@ -30,14 +32,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 //        HomeTab tab = tabs.get(position);
 
         Fragment fragment = null;
-//        String aaa = tabs.get(position).getTitle();
-//        System.out.print("でるかな"+aaa);
 
-//        System.out.println(tabs.size());
-
-//        int diff = (position - (MAX_PAGE_NUM / 2)) % OBJECT_NUM;
-//        System.out.println("diffの表示:"+diff);
-//        int index = (0 < diff) ? (OBJECT_NUM + diff) : diff;
         int index = position;
         System.out.println("indexの表示"+index);
         switch(index) {
@@ -47,11 +42,11 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
                 break;
             case 1:
                 System.out.println("index:case1"+index);
-                fragment = new ListViewFragmentOne();
+                fragment = ListViewFragment.newInstance();
                 break;
             case 2:
                 System.out.println("index:case2"+index);
-                fragment = new ListViewFragmentOne();
+                fragment = new MessagesFragemnt();
                 break;
             case 3:
                 System.out.println("index:case3"+index);

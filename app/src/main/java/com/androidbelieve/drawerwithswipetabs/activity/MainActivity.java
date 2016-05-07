@@ -65,17 +65,11 @@ public class MainActivity extends AppCompatActivity {
          * Lets inflate the very first fragment
          * Here , we are inflating the TabFragment as the first Fragment
          */
-
-
         List<HomeTab> tabs = new ArrayList<>();
-
-//        for (int i = 0; i < 250;) {
             tabs.add(new HomeTab("top"));
             tabs.add(new HomeTab("match"));
             tabs.add(new HomeTab("message"));
             tabs.add(new HomeTab("setting"));
-//            i++;
-//        }
 
         //1.viewpageradapterによって、内部描画コンテンツを任せてる。ViewPagerAdapterに関して、リンク飛ばす。
         System.out.println("viewpager開始");
@@ -89,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
         setToggleAction();
 
     }
+
 //    @Override
 //    protected void onResume() {
 //        super.onResume();
