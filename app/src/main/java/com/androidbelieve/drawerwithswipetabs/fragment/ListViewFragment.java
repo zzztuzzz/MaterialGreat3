@@ -84,14 +84,17 @@ public class ListViewFragment extends Fragment implements SwipeRefreshLayout.OnR
         binding.swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
         binding.swipeRefreshLayout.setOnRefreshListener(this);
 
-
+        //初回データ読み込み
         loadData(1);
         return binding.getRoot();
     }
 
     private void loadData(final int page) {
         // Set the Stub for display the ProgressBar
-        final ProgressStub progressStub = new ProgressStub();
+        final Photo progressStub = (Photo) Photo.createProgress();
+        final Photo dummyList = (Photo) Photo.createDummyList(6);
+        // adapter　のaddメソッド単体での動きとして、progress Stubそのものを型を合わせないといけない。
+
         if (page > 1) {
             adapter.add(progressStub);
         }
@@ -106,7 +109,7 @@ public class ListViewFragment extends Fragment implements SwipeRefreshLayout.OnR
                 if (binding.swipeRefreshLayout.isRefreshing()) {
                     binding.swipeRefreshLayout.setRefreshing(false);
                 }
-                adapter.add(Photo.createDummyList(6));
+                adapter.add(dummyList);
             }
         }, 1000);
     }

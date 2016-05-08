@@ -42,6 +42,10 @@ public class Photo {
         }
         return list;
     }
+    public static List<Photo> createProgress(){
+        List<Photo> list = new ArrayList<>();
+        return list;
+    }
 
     public @DrawableRes int drawableResId;
 
