@@ -11,11 +11,9 @@ import android.widget.FrameLayout;
 import com.androidbelieve.drawerwithswipetabs.R;
 import com.androidbelieve.drawerwithswipetabs.entity.Photo;
 import com.androidbelieve.drawerwithswipetabs.views.ProgressBarLayoutHolder;
-import com.androidbelieve.drawerwithswipetabs.views.ProgressStub;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by teiyuueki on 2016/05/06.
@@ -28,8 +26,9 @@ public class PhotoGridAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     private final Object lock = new Object();
     public final static int TYPE_ITEM = 1;
     public final static int TYPE_PROG = 10;
-    protected final List<Photo> photos;
+    protected final ArrayList<Object> photos;
     private boolean isProgressBarShowing;
+    private int ITEM_PROG;
 //    protected  List<Object> objects;
 
     public PhotoGridAdapter(@NonNull Context context, @NonNull ArrayList<Object> items, int spanCount) {
@@ -70,7 +69,7 @@ public class PhotoGridAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
         if (holder instanceof PhotoLayoutHolder) {
 
-            Photo photo =  photos.get(position);
+            Photo photo = (Photo) photos.get(position);
             FrameLayout photoLayout = ((PhotoLayoutHolder) holder).photoLayout;
 
             AppCompatImageView photoImageView = (AppCompatImageView) photoLayout.findViewById(R.id.photo_image_view);
@@ -83,7 +82,7 @@ public class PhotoGridAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         if (isProgressBarShowing && position >= photos.size()) {
             return ITEM_PROG;
         }
-        return TYPE_ITEM;
+            return TYPE_ITEM;
 
 //        final Object object = objects.get(position);
 //        if (object instanceof ProgressStub) {

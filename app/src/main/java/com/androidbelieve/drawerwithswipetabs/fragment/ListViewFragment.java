@@ -17,7 +17,6 @@ import com.androidbelieve.drawerwithswipetabs.entity.Photo;
 import com.androidbelieve.drawerwithswipetabs.views.EndlessScrollListener;
 import com.androidbelieve.drawerwithswipetabs.views.GridSpacingItemDecoration;
 import com.androidbelieve.drawerwithswipetabs.views.GridWithProgressLayoutManager;
-import com.androidbelieve.drawerwithswipetabs.views.ProgressStub;
 
 import java.util.ArrayList;
 
