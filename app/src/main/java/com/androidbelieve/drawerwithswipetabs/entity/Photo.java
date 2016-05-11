@@ -6,15 +6,14 @@ import android.util.Log;
 import com.androidbelieve.drawerwithswipetabs.R;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by teiyuueki on 2016/05/06.
  */
 public class Photo {
 
-    public static List<Photo> createDummyList(int count) {
-        List<Photo> list = new ArrayList<>();
+    public static ArrayList<Object> createDummyList(int count) {
+        ArrayList<Object> list = new ArrayList<>();
         for (int i = 0; i < count; i++) {
             switch (i%6) {
                 case 0:
@@ -42,10 +41,10 @@ public class Photo {
         }
         return list;
     }
-    public static List<Photo> createProgress(){
-        List<Photo> list = new ArrayList<>();
-        return list;
-    }
+//    public static List<Photo> createProgress(){
+//        List<Photo> list = new ArrayList<>();
+//        return list;
+//    }
 
     public @DrawableRes int drawableResId;
 

@@ -11,6 +11,7 @@ import android.widget.FrameLayout;
 import com.androidbelieve.drawerwithswipetabs.R;
 import com.androidbelieve.drawerwithswipetabs.entity.Photo;
 import com.androidbelieve.drawerwithswipetabs.views.ProgressBarLayoutHolder;
+import com.androidbelieve.drawerwithswipetabs.views.ProgressStub;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -26,14 +27,16 @@ public class PhotoGridAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     private final Object lock = new Object();
     public final static int TYPE_ITEM = 1;
     public final static int TYPE_PROG = 10;
-    protected final ArrayList<Object> photos;
+    protected final ArrayList<Object> objects;
     private boolean isProgressBarShowing;
     private int ITEM_PROG;
+    private final ProgressStub progressStub = new ProgressStub();
+
 //    protected  List<Object> objects;
 
     public PhotoGridAdapter(@NonNull Context context, @NonNull ArrayList<Object> items, int spanCount) {
         super();
-        this.photos = items ;
+        this.objects = items ;
         this.context = context;
 
         inflater = LayoutInflater.from(context);
@@ -69,17 +72,17 @@ public class PhotoGridAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
         if (holder instanceof PhotoLayoutHolder) {
 
-            Photo photo = (Photo) photos.get(position);
+            Photo photo = (Photo) objects.get(position);
             FrameLayout photoLayout = ((PhotoLayoutHolder) holder).photoLayout;
-
             AppCompatImageView photoImageView = (AppCompatImageView) photoLayout.findViewById(R.id.photo_image_view);
             Picasso.with(context).load(photo.drawableResId).into(photoImageView);
+
         }
     }
 
     @Override
     public int getItemViewType(int position) {
-        if (isProgressBarShowing && position >= photos.size()) {
+        if (isProgressBarShowing && position >= objects.size()) {
             return ITEM_PROG;
         }
             return TYPE_ITEM;
@@ -112,32 +115,44 @@ public class PhotoGridAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public int getItemCount() {
 
         if (isProgressBarShowing) {
-            return photos.size() + 1;
+            return objects.size() + 1;
         }
-        return photos.size();
+        return objects.size();
     }
 
-    public void add(@NonNull Photo photo) {
-        int position = photos.size();
+    public void add(@NonNull ArrayList<Object> photo) {
+        int position = objects.size();
         synchronized (lock) {
-            photos.add(photo);
+            objects.add(photo);
         }
         notifyItemInserted(position);
     }
 
     public void remove(Object object) {
-        int position = photos.indexOf(object);
+        int position = objects.indexOf(object);
         synchronized (lock) {
-            photos.remove(object);
+            objects.remove(object);
         }
         notifyItemRemoved(position);
     }
 
     public void clear() {
         synchronized (lock) {
-            photos.clear();
+            objects.clear();
         }
         notifyDataSetChanged();
+    }
+    public void setProgressBarVisibility(boolean visible) {
+        if (visible) {
+            // プログレスバーが複数表示される事がないようにする
+            if (!objects.contains(progressStub)) {
+                objects.add(progressStub);
+                notifyDataSetChanged();
+            }
+        } else {
+            objects.remove(progressStub);
+            notifyDataSetChanged();
+        }
     }
 
 }

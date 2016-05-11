@@ -89,13 +89,11 @@ public class ListViewFragment extends Fragment implements SwipeRefreshLayout.OnR
     }
 
     private void loadData(final int page) {
-        // Set the Stub for display the ProgressBar
-        final Photo progressStub = (Photo) Photo.createProgress();
-        final Photo dummyList = (Photo) Photo.createDummyList(6);
-        // adapter　のaddメソッド単体での動きとして、progress Stubそのものを型を合わせないといけない。
+        //1.ロード時のデータセット呼び出し
+        final ArrayList<Object> dummyList = Photo.createDummyList(6);
 
         if (page > 1) {
-            adapter.add(progressStub);
+              adapter.setProgressBarShowingVisivility(true);
         }
 
         handler.postDelayed(new Runnable() {
@@ -103,7 +101,8 @@ public class ListViewFragment extends Fragment implements SwipeRefreshLayout.OnR
             public void run() {
                 // Remove the Stub
                 if (page > 1) {
-                    adapter.remove(progressStub);
+//                    adapter.remove(progressStub);
+                    adapter.setProgressBarShowingVisivility(false);
                 }
                 if (binding.swipeRefreshLayout.isRefreshing()) {
                     binding.swipeRefreshLayout.setRefreshing(false);
