@@ -21,6 +21,7 @@ import java.util.ArrayList;
  */
 
 public class PhotoGridAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+
     private Context context;
     private LayoutInflater inflater;
     private int imageSize;
@@ -34,9 +35,10 @@ public class PhotoGridAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
 //    protected  List<Object> objects;
 
-    public PhotoGridAdapter(@NonNull Context context, @NonNull ArrayList<Object> items, int spanCount) {
+    public PhotoGridAdapter(@NonNull Context context, int spanCount) {
         super();
-        this.objects = items ;
+
+        this.objects = new ArrayList<Object>();
         this.context = context;
 
         inflater = LayoutInflater.from(context);
@@ -76,6 +78,9 @@ public class PhotoGridAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             Photo photo = (Photo) objects.get(position);
 
             //　after
+
+
+
             // TODO:intを返すphoto.drawableResIdにしたい。
             // 現状Objectになっているので、get(position)まわりの動きができない。
 
@@ -92,19 +97,19 @@ public class PhotoGridAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     @Override
     public int getItemViewType(int position) {
-        if (isProgressBarShowing && position >= objects.size()) {
-            return ITEM_PROG;
-        }
-            return TYPE_ITEM;
+        //if (isProgressBarShowing && position >= objects.size()) {
+        //    return ITEM_PROG;
+        //}
+        //    return TYPE_ITEM;
 
-//        final Object object = objects.get(position);
-//        if (object instanceof ProgressStub) {
-//            System.out.println("PhotoGridAdapter  If getItemViewType"+TYPE_PROG);
-//            return TYPE_PROG;
-//        } else {
-//            System.out.println("PhotoGridAdapter  If getItemViewType"+TYPE_ITEM);
-//            return TYPE_ITEM;
-//        }
+        final Object object = objects.get(position);
+        if (object instanceof ProgressStub) {
+            System.out.println("PhotoGridAdapter  If getItemViewType"+TYPE_PROG);
+            return TYPE_PROG;
+        } else {
+            System.out.println("PhotoGridAdapter  If getItemViewType"+TYPE_ITEM);
+            return TYPE_ITEM;
+        }
     }
 
     public void setProgressBarShowingVisivility(boolean visible) {

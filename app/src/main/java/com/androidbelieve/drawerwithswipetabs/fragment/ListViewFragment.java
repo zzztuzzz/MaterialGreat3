@@ -58,7 +58,7 @@ public class ListViewFragment extends Fragment implements SwipeRefreshLayout.OnR
         //
 
         //1.画像のセットアップアダプターの作成
-        adapter = new PhotoGridAdapter(getActivity(), new ArrayList<>(), spanCount);
+        adapter = new PhotoGridAdapter(getActivity(), spanCount);
         //2.プログレスバーのレイアウトマネージャーの作成,引数(activityとspancount,画像のアダプタ)を代入
         GridWithProgressLayoutManager layoutManager = new GridWithProgressLayoutManager(getActivity(), spanCount, adapter);
         //3.スクロールリスナを作成.
