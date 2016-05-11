@@ -41,9 +41,14 @@ public class Photo {
         }
         return list;
     }
-//    public static List<Photo> createProgress(){
-//        List<Photo> list = new ArrayList<>();
-//        return list;
+
+
+    public void getResId(Object pholder) {
+
+    }
+
+//    public  Photo(int drawableResId){
+//        this.drawableResId = drawableResId;
 //    }
 
     public @DrawableRes int drawableResId;
@@ -51,4 +56,5 @@ public class Photo {
     public Photo(@DrawableRes int drawableResId) {
         this.drawableResId = drawableResId;
     }
+
 }

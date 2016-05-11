@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -72,10 +73,25 @@ public class PhotoGridAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
         if (holder instanceof PhotoLayoutHolder) {
 
-            Photo photo = (Photo) objects.get(position);
+            // before/元Photo
+            //Photo photo = (Photo) objects.get(position);
+
+            //　after
+            // TODO:intを返すphoto.drawableResIdにしたい。
+            Photo photo = null;
+            Object pholder = objects.get(position);
+            Log.d("pholderがでるよ", String.valueOf((Object) pholder));
+            // end after
+
+
             FrameLayout photoLayout = ((PhotoLayoutHolder) holder).photoLayout;
             AppCompatImageView photoImageView = (AppCompatImageView) photoLayout.findViewById(R.id.photo_image_view);
-            Picasso.with(context).load(photo.drawableResId).into(photoImageView);
+            // before/元picaso読み込み
+            // Picasso.with(context).load(photo.drawableResId).into(photoImageView);
+
+            //コンパイル通すために便宜的に1をloadに入れているので、肝心のオートローダーは動かない。
+            // after/
+            Picasso.with(context).load(1).into(photoImageView);
 
         }
     }
